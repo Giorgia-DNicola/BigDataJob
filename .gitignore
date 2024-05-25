@@ -183,4 +183,6 @@ venv.bak/
 .idea/gradle.xml
 .idea/libraries
 
+# Project specific
+data/
 # End of file
