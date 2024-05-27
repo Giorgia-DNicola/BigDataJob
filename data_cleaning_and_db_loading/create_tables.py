@@ -18,14 +18,14 @@ try:
     # SQL statements to create tables
     sql_commands = [
         text("""
-        CREATE TABLE IF NOT EXISTS historical_stock_prices (
+        CREATE TABLE IF NOT EXISTS historical_stocks (
             ticker VARCHAR(255),
             name VARCHAR(255),
             sector VARCHAR(255)
         );
         """),
         text("""
-        CREATE TABLE IF NOT EXISTS historical_stocks (
+        CREATE TABLE IF NOT EXISTS historical_stock_prices (
             ticker VARCHAR(255),
             close DOUBLE PRECISION,
             low DOUBLE PRECISION,
