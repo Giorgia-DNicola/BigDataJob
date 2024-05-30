@@ -1,0 +1,12 @@
+# Usa l'immagine ufficiale di Apache Hive
+FROM apache/hive:4.0.0
+
+ENV SERVICE_NAME=metastore
+ENV DB_DRIVER=postgres
+ENV POSTGRES_HOST=postgres
+ENV POSTGRES_PORT=5432
+ENV POSTGRES_DB=metastore_db
+ENV POSTGRES_USER=hive
+ENV POSTGRES_PASSWORD=postgres
+
+EXPOSE 9083

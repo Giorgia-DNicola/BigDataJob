@@ -1,0 +1,7 @@
+FROM postgres:latest
+
+ENV POSTGRES_DB=metastore_db
+ENV POSTGRES_USER=hive
+ENV POSTGRES_PASSWORD=postgres
+
+EXPOSE 5432 
