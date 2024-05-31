@@ -4,4 +4,8 @@ ENV POSTGRES_DB=metastore_db
 ENV POSTGRES_USER=hive
 ENV POSTGRES_PASSWORD=postgres
 
-EXPOSE 5432 
+# Add script to create the postgres role if necessary
+COPY init-db.sh /docker-entrypoint-initdb.d/
+
+# Init script to create the 'postgres' role
+RUN echo "CREATE ROLE postgres WITH LOGIN SUPERUSER;" > /docker-entrypoint-initdb.d/create_postgres_role.sql

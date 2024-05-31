@@ -1,6 +1,7 @@
-# Usa l'immagine ufficiale di Apache Hive
+# Use official Apache Hive image
 FROM apache/hive:4.0.0
 
+# Set environment variables
 ENV SERVICE_NAME=metastore
 ENV DB_DRIVER=postgres
 ENV POSTGRES_HOST=postgres
@@ -8,5 +9,15 @@ ENV POSTGRES_PORT=5432
 ENV POSTGRES_DB=metastore_db
 ENV POSTGRES_USER=hive
 ENV POSTGRES_PASSWORD=postgres
+ENV POSTGRES_DRIVER_JAR=/opt/hive/lib/postgresql-42.7.3.jar
+ENV HIVE_CONF_DIR=/opt/hive/conf
+ENV HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$POSTGRES_DRIVER_JAR
 
+# Expose port 9083
 EXPOSE 9083
+
+# Copy Hive configuration file
+COPY hive-site.xml /opt/hive/conf/hive-site.xml
+
+# Copy PostgreSQL driver into the container
+COPY postgresql-42.7.3.jar /opt/hive/lib/
