@@ -26,3 +26,6 @@ After downloading the PostgreSQL JDBC driver, you'll need to place it in the `do
 Once you have the PostgreSQL JDBC driver in place, you can proceed to build and run the Docker containers using the provided configuration.
 
 Follow the instructions in the repository's environment README to build and run the Docker containers for Apache Hive and PostgreSQL.
+
+
+#Lanciare chmod +x init-db.sh prima di lanciare setup_...
