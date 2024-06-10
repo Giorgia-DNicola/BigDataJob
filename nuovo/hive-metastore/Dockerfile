@@ -1,0 +1,11 @@
+FROM bde2020/hive:2.3.2-postgresql-metastore
+
+ENV POSTGRES_USER=hive
+ENV POSTGRES_PASSWORD=hive
+ENV POSTGRES_DB=metastore
+ENV HIVE_METASTORE_USER=hive
+ENV HIVE_METASTORE_PASSWORD=hive
+ENV HIVE_METASTORE_DB_TYPE=postgres
+
+VOLUME /opt/hive/conf
+VOLUME /opt/hive/lib
