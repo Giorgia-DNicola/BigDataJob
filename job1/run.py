@@ -11,9 +11,10 @@ def create_hive_table():
         .enableHiveSupport() \
         .getOrCreate()
 
-    df1 = spark.read.option("header", "true").option("inferSchema", "true").csv("./data_cleaning_and_db_loading/data/new_historical_stock_prices.csv")
-    df2 = spark.read.option("header", "true").option("inferSchema", "true").csv("./data_cleaning_and_db_loading/data/new_historical_stocks.csv")
-
+    df1 = spark.read.option("header", "true").option("inferSchema", "true").csv(
+        "../data_cleaning_and_db_loading/data/new_historical_stock_prices.csv")
+    df2 = spark.read.option("header", "true").option("inferSchema", "true").csv(
+        "../data_cleaning_and_db_loading/data/new_historical_stocks.csv")
 
     # Create Temporary View
     df1.createOrReplaceTempView("historical_stock_prices_table")
