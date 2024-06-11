@@ -1,14 +1,9 @@
-import argparse
-
 from pyspark.sql import SparkSession
 
 warehouse_path = "/Users/kaguyasama/GitHub/BigDataJob/job1"
 stock_prices_table_name = "new_historical_stock_prices"
 historical_stocks_table_name = "new_historical_stocks"
-parser = argparse.ArgumentParser()
-parser.add_argument("--input_path", type=str, help="Input file path")
-# parse arguments
-args = parser.parse_args()
+
 stock_prices_table_input_path = "/Users/kaguyasama/GitHub/BigDataJob/data_cleaning_and_db_loading/data/new_historical_stock_prices.csv"
 historical_stocks_table_input_path = "/Users/kaguyasama/GitHub/BigDataJob/data_cleaning_and_db_loading/data/new_historical_stocks.csv"
 
@@ -40,11 +35,6 @@ spark.sql("""CREATE TABLE IF NOT EXISTS new_historical_stock_prices (
         ) USING csv
         OPTIONS (header 'true', sep ',', inferSchema 'true', quote '\"')
         LOCATION '/Users/kaguyasama/GitHub/BigDataJob/job1/spark-warehouse'""")
-
-"""if input_path.startswith("hdfs://"):
-    spark.sql("LOAD DATA INPATH '" + input_path + "' INTO TABLE " + stock_prices_table_name)
-else:
-    spark.sql("LOAD DATA LOCAL INPATH '" + input_path + "' INTO TABLE " + stock_prices_table_name)"""
 
 # Load the data into DataFrame
 df1 = spark.read.csv(stock_prices_table_input_path, header=True, inferSchema=True)
