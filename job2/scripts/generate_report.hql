@@ -1,0 +1,4 @@
+INSERT OVERWRITE LOCAL DIRECTORY './results/report.csv'
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+SELECT * FROM industry_annual_report;
