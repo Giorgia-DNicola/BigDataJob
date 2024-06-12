@@ -1,10 +1,10 @@
 CREATE TABLE historical_stock_prices (
-    ticker STRING
+    ticker STRING, 
     close FLOAT,
     low FLOAT,
     high FLOAT,
     volume INT,
-    date STRING
+    `date` STRING
 )
 STORED AS PARQUET;
 
